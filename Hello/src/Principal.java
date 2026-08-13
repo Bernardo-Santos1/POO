@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Principal {
 
     static int simularArmarios(int n) {
@@ -36,7 +38,20 @@ public class Principal {
             System.out.println(args[i]);
         }
 
-        int nArmarios = Integer.parseInt(args[0]);
+        int nArmarios;
+        if (args.length > 0) {
+            // vou ler da linha de comando
+            nArmarios = Integer.parseInt(args[0]);
+            
+        } else {
+            // vou pedir pro usuário digitar
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Quantos armários ?");
+            nArmarios = scanner.nextInt();
+        }
+
+
+
         System.out.println("Abertos ==> " + simularArmarios(nArmarios));
         System.out.println("Abertos ==> " + contarArmariosAbertos(nArmarios));
 
@@ -48,6 +63,12 @@ public class Principal {
         }
 
         System.out.println("valor é " + (x > 5 ? "alto" : "baixo"));
+
+        float numero = 70.3f;
+        System.out.printf("Meu número é %.2f, ok?", numero);
+
+
+
 
 
     }
