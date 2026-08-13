@@ -29,10 +29,16 @@ public class Principal {
     }
 
 
-    public static void main(String[] args) {  // psvm
-        System.out.println("Oi!");  // sout
-        System.out.println("Abertos ==> " + simularArmarios(18));
-        System.out.println("Abertos ==> " + contarArmariosAbertos(18));
+    public static void main(String[] args) {  // psvm <TAB>
+        System.out.println("Oi!");  // sout <TAB>
+
+        for (int i = 0; i < args.length; i++) {
+            System.out.println(args[i]);
+        }
+
+        int nArmarios = Integer.parseInt(args[0]);
+        System.out.println("Abertos ==> " + simularArmarios(nArmarios));
+        System.out.println("Abertos ==> " + contarArmariosAbertos(nArmarios));
 
         int x = 7;
         int y = 20;
