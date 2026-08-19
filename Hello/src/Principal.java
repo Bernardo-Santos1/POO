@@ -42,7 +42,7 @@ public class Principal {
         if (args.length > 0) {
             // vou ler da linha de comando
             nArmarios = Integer.parseInt(args[0]);
-            
+
         } else {
             // vou pedir pro usuário digitar
             Scanner scanner = new Scanner(System.in);
@@ -58,7 +58,7 @@ public class Principal {
         int x = 7;
         int y = 20;
 
-        if (x > y || y > 18 && x < 8) {
+        if (x > y || y > 18.3f && x < 8) {
             System.out.println("ok");
         }
 
