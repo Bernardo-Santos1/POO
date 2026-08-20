@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class ContaCorrente {
 
+    public static final float LIMITE_CHEQUE_ESPECIAL = 500;
+
     // atributos
     private long cpf;
     private float saldo;
@@ -14,18 +16,24 @@ public class ContaCorrente {
 
     public ContaCorrente(long cpf) {
         this.cpf = cpf;
-        this.saldo = 50;
+        this.saldo = 50;  // saldo inicial (brinde)
         this.senha = 123;
         this.extrato = new ArrayList<>();
     }
 
     public void sacar(float valor) {
         if (saldo < valor) {
-            throw new RuntimeException("Saldo insuficiente!!!!");  // veremos depois!!
+            // O correto seria lançar uma exceção; veremos mais à frente!
+            // no momento, simplesmente não faremos nada
+            extrato.add("Tentativa de saque muito elevado");
         } else {
             saldo = saldo - valor;
         }
         extrato.add(String.format("Saque de R$%.2f efetuado.", valor));
+    }
+
+    public void transferir(float valor, ContaCorrente contaDestino) {
+        // ToDo IMPLEMENT ME!!!!
     }
 
     public void imprimirExtrato() {

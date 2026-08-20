@@ -14,10 +14,6 @@ public class Principal {
         contaDoFulano.imprimirExtrato();
 
         System.out.println("saldo = " + contaDoFulano.getSaldo());
-
-
-
-
     }
 
 }
