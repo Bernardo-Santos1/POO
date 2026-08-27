@@ -10,8 +10,24 @@ public class Fracao {
         this.sinal = numerador * denominador >= 0;
     }
 
+    public int getNumerador() {
+        return numerador;
+    }
+
+    public int getDenominador() {
+        return denominador;
+    }
+
+    public boolean getSinal() {
+        return sinal;
+    }
+
     public Fracao somar(Fracao outra) {
-        return null;  // ToDo IMPLEMENT ME!!!
+        int numResultado = 1;  // ToDo
+        int denomResultado = 1;  // ToDo
+        // ... calcular o resultado e criar umanova Fracao para ser retornada
+        Fracao resultado = new Fracao(numResultado, denomResultado);
+        return resultado;  // ToDo IMPLEMENT ME!!!
     }
 
     public double getValorNumerico() {
@@ -23,6 +39,11 @@ public class Fracao {
     }
 
     public Fracao multiplicar(Fracao outra) {
+        return null;  // ToDo IMPLEMENT ME!!!
+    }
+
+    @Override
+    public String toString() {
         return null;  // ToDo IMPLEMENT ME!!!
     }
 }
