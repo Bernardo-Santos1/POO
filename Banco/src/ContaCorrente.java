@@ -1,11 +1,13 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ContaCorrente {
 
     public static final float LIMITE_CHEQUE_ESPECIAL = 500;
+    private static final Random GERADOR = new Random();
 
     // atributos
-    private long cpf;
+    private final long cpf;
     private float saldo;
     private String nome;
     private int agencia;
@@ -14,15 +16,20 @@ public class ContaCorrente {
     private int senha;
     private ArrayList<String> extrato;  // veremos depois!!!
 
+    public static int idBanco;  // todas as contas serão do mesmo banco!!!!
+    private static int quantContasCriadas = 0;
+
     public ContaCorrente(long cpf) {
+        quantContasCriadas++;
+
         this.cpf = cpf;
-        this.saldo = 50;  // saldo inicial (brinde)
-        this.senha = 123;
+        this.saldo = quantContasCriadas == 100 ? 1050 : 50;  // saldo inicial (brinde)
+        this.senha = GERADOR.nextInt(100000);
         this.extrato = new ArrayList<>();
     }
 
     public void sacar(float valor) {
-        if (saldo < valor) {
+        if (saldo + LIMITE_CHEQUE_ESPECIAL < valor) {
             // O correto seria lançar uma exceção; veremos mais à frente!
             // no momento, simplesmente não faremos nada
             extrato.add("Tentativa de saque muito elevado");
@@ -33,7 +40,14 @@ public class ContaCorrente {
     }
 
     public void transferir(float valor, ContaCorrente contaDestino) {
-        // ToDo IMPLEMENT ME!!!!
+        if (saldo + LIMITE_CHEQUE_ESPECIAL < valor) {
+            System.out.println("Saldo insuficiente");
+            // ToDo lançar uma exceção
+        } else {
+            saldo -= valor;
+            contaDestino.saldo += valor;
+            extrato.add("Transferência feita...");
+        }
     }
 
     public void imprimirExtrato() {
@@ -44,6 +58,10 @@ public class ContaCorrente {
 
     public float getSaldo() {
         return saldo;
+    }
+
+    public int getQuantContasCriadas() {
+        return quantContasCriadas;
     }
 }
 

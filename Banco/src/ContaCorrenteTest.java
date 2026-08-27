@@ -128,4 +128,17 @@ public class ContaCorrenteTest {
                 saldoAntesDaTransferenciaNaContaDestino,
                 contaDestino.getSaldo(), ACCEPTED_FLOAT_DELTA);
     }
+
+    @Test
+    public void testarPremioDaCentesimaContaCriada() {
+        for (int i = 1; i <= 100; i++) {
+            ContaCorrente conta = new ContaCorrente(123);
+            if (i < 100) {
+                assertEquals(50, conta.getSaldo(), ACCEPTED_FLOAT_DELTA);
+            } else {
+                assertEquals("A centésima conta criada precisa ganhar um bprêmio de 1000 reais",
+                        1050, conta.getSaldo(), ACCEPTED_FLOAT_DELTA);
+            }
+        }
+    }
 }
