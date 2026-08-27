@@ -23,18 +23,47 @@ public class Fracao {
     }
 
     public Fracao somar(Fracao outra) {
+
+
         int numResultado = 1;  // ToDo
         int denomResultado = 1;  // ToDo
-        // ... calcular o resultado e criar umanova Fracao para ser retornada
+
+        int num = getNumerador();
+        int den = getDenominador();
+
+        int a = Aritmetica.mdc(den,outra.denominador);
+
+        int fator1 = den/a;
+        int fator2 = outra.denominador/a;
+
+        numResultado = fator1 * outra.numerador + fator2 * num;
+        denomResultado = outra.denominador*den/a;
+
+
         Fracao resultado = new Fracao(numResultado, denomResultado);
-        return resultado;  // ToDo IMPLEMENT ME!!!
+        return resultado;
     }
 
     public double getValorNumerico() {
-        return 0;  // ToDo IMPLEMENT ME!!!
+        int numerador = getNumerador();
+        int denominador = getDenominador();
+        int a;
+        if(getSinal()){
+            a = 1;
+        }else{
+            a = -1;
+        }
+
+
+        double resp = a*(numerador*1.0)/(denominador*1.0);
+
+        return resp;
+
+          // ToDo IMPLEMENT ME!!!
     }
 
     public Fracao getFracaoIrredutivel() {
+        int a = Aritmetica.mdc();
         return null;  // ToDo IMPLEMENT ME!!!
     }
 
